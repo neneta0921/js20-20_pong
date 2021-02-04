@@ -1,6 +1,6 @@
 class Game {
   _hideGameOverEl() {
-    body.removeChild(gameOverEl);
+    container.removeChild(gameOverEl);
     canvas.hidden = false;
   }
 
@@ -19,10 +19,23 @@ class Game {
     const canvasPosition = screenWidth / 2 - width / 2;
 
     playerMoved = true;
-    // Compensate for canvas begins centered
+
+    // Compensate for canvas being centered
     paddleBottomX = e.clientX - canvasPosition - paddleDiff;
-    paddleBottomX < paddleDiff ? (paddleBottomX = 0) : false;
-    paddleBottomX > width - paddleWidth ? (paddleBottomX = width - paddleWidth) : false;
+    console.log('paddleBottomX1:', paddleBottomX, e.clientX, canvasPosition, paddleDiff);
+
+    // If Paddle is Left side, don't move to left
+    if (paddleBottomX < paddleDiff) {
+      paddleBottomX = 0;
+    }
+    console.log('paddleBottomX2:', paddleBottomX);
+
+    // If Paddle is right side, don't move to right
+    if (paddleBottomX > width - paddleWidth) {
+      paddleBottomX = width - paddleWidth;
+    }
+    console.log('paddleBottomX3:', paddleBottomX);
+
     // Hide Cursor
     canvas.style.cursor = 'none';
   }
@@ -35,6 +48,10 @@ class Game {
     canvas.addEventListener('mousemove', (e) => {
       this._checkPlayerMovement(e);
     });
+
+    // container.addEventListener('mousemove', (e) => {
+    //   this._checkPlayerMovement(e);
+    // });
   }
 
   _showGameOverEl(winner) {
@@ -62,7 +79,7 @@ class Game {
 
     // Append
     gameOverEl.append(title, playAgainBtn);
-    body.appendChild(gameOverEl);
+    container.appendChild(gameOverEl);
   }
 
   // Check If One Player Has Winning Score, If They Do, End Game

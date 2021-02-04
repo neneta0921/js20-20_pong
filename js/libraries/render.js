@@ -1,3 +1,4 @@
+const container = document.querySelector('.container');
 const canvas = document.createElement('canvas');
 const context = canvas.getContext('2d');
 
@@ -43,7 +44,7 @@ class Render {
   createCanvas() {
     canvas.width = width;
     canvas.height = height;
-    body.appendChild(canvas);
+    container.appendChild(canvas);
     this._renderCanvas();
   }
 
