@@ -16,7 +16,7 @@ let playerMoved = false;
 // Score
 let playerScore = 0;
 let computerScore = 0;
-const winningScore = 7;
+const winningScore = 1;
 let isGameOver = true;
 let isNewGame = true;
 
@@ -26,6 +26,10 @@ const ballBoundaries = () => ball.ballBoundaries();
 const ballMove = () => ball.ballMove();
 const ballReset = () => ball.ballReset();
 const computerAI = () => ball.computerAI();
+
+const game = new Game();
+const startGame = () => game.startGame();
+const gameOver = () => game.gameOver();
 
 // On Load
 startGame();
