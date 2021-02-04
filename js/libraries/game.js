@@ -15,14 +15,14 @@ class Game {
   }
 
   _checkPlayerMovement(e) {
-    const screenWidth = window.screen.width;
-    const canvasPosition = screenWidth / 2 - width / 2;
-
+    const screenWidth = body.clientWidth;
+    const canvasCenterPosition = screenWidth / 2 - width / 2;
+    console.log(screenWidth, width);
     playerMoved = true;
 
     // Compensate for canvas being centered
-    paddleBottomX = e.clientX - canvasPosition - paddleDiff;
-    console.log('paddleBottomX1:', paddleBottomX, e.clientX, canvasPosition, paddleDiff);
+    paddleBottomX = e.clientX - canvasCenterPosition - paddleDiff;
+    console.log('paddleBottomX1:', paddleBottomX, e.clientX, canvasCenterPosition, paddleDiff);
 
     // If Paddle is Left side, don't move to left
     if (paddleBottomX < paddleDiff) {
