@@ -1,7 +1,7 @@
 // Canvas
 const { body } = document;
-const width = 500;
-const height = 700;
+const width = 400;
+const height = 500;
 
 const gameOverEl = document.createElement('div');
 

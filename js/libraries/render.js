@@ -22,8 +22,8 @@ class Render {
     // Dashed Center Line
     context.beginPath();
     context.setLineDash([6]);
-    context.moveTo(0, 350);
-    context.lineTo(500, 350);
+    context.moveTo(0, 250);
+    context.lineTo(400, 250);
     context.strokeStyle = 'grey';
     context.stroke();
 
