@@ -20,5 +20,12 @@ const winningScore = 7;
 let isGameOver = true;
 let isNewGame = true;
 
+// Instance
+const ball = new Ball();
+const ballBoundaries = () => ball.ballBoundaries();
+const ballMove = () => ball.ballMove();
+const ballReset = () => ball.ballReset();
+const computerAI = () => ball.computerAI();
+
 // On Load
 startGame();
