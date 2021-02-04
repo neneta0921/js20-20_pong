@@ -16,20 +16,24 @@ let playerMoved = false;
 // Score
 let playerScore = 0;
 let computerScore = 0;
-const winningScore = 1;
+const winningScore = 7;
 let isGameOver = true;
 let isNewGame = true;
 
 // Instance
+const render = new Render();
+const createCanvas = () => render.createCanvas();
+const animate = () => render.animate();
+
+const game = new Game();
+const startGame = () => game.startGame();
+const gameOver = () => game.gameOver();
+
 const ball = new Ball();
 const ballBoundaries = () => ball.ballBoundaries();
 const ballMove = () => ball.ballMove();
 const ballReset = () => ball.ballReset();
 const computerAI = () => ball.computerAI();
-
-const game = new Game();
-const startGame = () => game.startGame();
-const gameOver = () => game.gameOver();
 
 // On Load
 startGame();
